@@ -3,6 +3,7 @@
  * @version v0.0.1 - 2014-08-19 
  * @link https://github.com/brandon-barker/ng-floatThead
  * @author Brandon Barker
+ * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function () {
     'use strict';
