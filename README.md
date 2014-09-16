@@ -1,4 +1,4 @@
-angular-floatThead
+angular-floatThead [![Build Status](https://travis-ci.org/brandon-barker/angular-floatThead.svg?branch=master)](https://travis-ci.org/brandon-barker/angular-floatThead)
 =============
 
 **angular-floatThead** is a very simple wrapper around the awesome floatThead library by [@mkoryak](https://github.com/mkoryak/floatThead/)
