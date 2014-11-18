@@ -16,7 +16,7 @@ $ bower install angular-float-thead
 1. Include angular-float-thead as a dependency for your app
 
   ```js
-  angular.module('myApp', ['angular-floatThead'])
+  angular.module('myApp', ['floatThead'])
   ```
   
 2. Specify ```float-thead``` on your table element and optionally pass through a floatThead object as a parameter, eg: ```<table float-thead="floatTheadOptions">```
