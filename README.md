@@ -23,4 +23,13 @@ $ bower install angular-float-thead
   
 3. Specify ```float-thead``` on your table element and optionally pass through a floatThead object as a parameter, eg: ```<table float-thead="floatTheadOptions">```
 
-4. If you want the directive to reinitialize when your tables data changes then specify an ```ng-model``` on your table and it will watch the collection/object and call 'reflow' when the data changes.
+4. Scope floatTheadOtions in your controller
+ 
+  ```js
+  $scope.floatTheadOptions = {
+      scrollingTop: 60
+      useAbsolutePositioning: false
+    }
+  ```    
+
+5. If you want the directive to reinitialize when your tables data changes then specify an ```ng-model``` on your table and it will watch the collection/object and call 'reflow' when the data changes.
