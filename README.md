@@ -34,4 +34,4 @@ $ bower install angular-float-thead
 
 5. If you want the directive to reinitialize when your tables data changes then specify an ```ng-model``` on your table and it will watch the collection/object and call 'reflow' when the data changes.
   Like this:
-  ```<table float-thead="floatTheadOptions" ng-model="theControllerWhereYouPlacedYourfloatTheadOptionsScopeinStep4">
+  ```<table float-thead="floatTheadOptions" ng-model="theControllerWhereYouPlacedYourfloatTheadOptionsScopeinStep4">```
