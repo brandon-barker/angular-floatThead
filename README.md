@@ -13,9 +13,9 @@ $ bower install angular-float-thead
 
 ## Usage
 
-1. Load the jquery.floatThead library as per instructed in that repo in your app. This angularized version is just a wrapper around the actual library which you still need.
+1. This is just a wrapper over the original jQuery floatThead library, so first make sure you have the main library installed as per https://github.com/mkoryak/floatThead 
 
-2. Include angular-float-thead as a dependency for your app
+2. Include angular-float-thead as a dependency for your app after running `bower install`
 
   ```js
   angular.module('myApp', ['floatThead'])
@@ -23,7 +23,7 @@ $ bower install angular-float-thead
   
 3. Specify ```float-thead``` on your table element and optionally pass through a floatThead object as a parameter, eg: ```<table float-thead="floatTheadOptions">```
 
-4. Scope floatTheadOtions in your controller
+4. Add floatTheadOptions to `$scope` on your controller
  
   ```js
   $scope.floatTheadOptions = {
@@ -34,6 +34,6 @@ $ bower install angular-float-thead
 
 5. If you want the directive to reinitialize when your tables data changes then specify an ```ng-model``` on your table and it will watch the collection/object and call 'reflow' when the data changes.
 
-  Like this:
+for eg:
   
-  ```<table float-thead="floatTheadOptions" ng-model="theControllerWhereYouPlacedYourfloatTheadOptionsScopeinStep4">```
+```<table float-thead="floatTheadOptions" ng-model="collectionOrObjectToWatch">```
