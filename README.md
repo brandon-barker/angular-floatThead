@@ -7,6 +7,7 @@ angular-floatThead
 ## Installation
 
 #### via bower:
+
 ```
 $ bower install angular-float-thead
 ```
@@ -37,3 +38,17 @@ $ bower install angular-float-thead
 for eg:
   
 ```<table float-thead="floatTheadOptions" ng-model="collectionOrObjectToWatch">```
+
+## Configuration
+
+You can pass through additional attributes to the directive to modify the behaviour:
+
+### `float-thead-enabled`
+
+Pass through a boolean value or scope object to enable/disable the floatThead library
+
+> You can use this to implement a toggle button or to delay the initialization of the library
+
+```html
+<table float-thead-enabled="test.enabled" ... >
+```
