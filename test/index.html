@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>angular-floatThead test</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+        integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+        crossorigin="anonymous">
+
+  <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="../bower_components/floatThead/dist/jquery.floatThead.min.js"></script>
+  <script type="text/javascript" src="../angular-floatThead.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+          integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+          crossorigin="anonymous"></script>
+
+  <style>
+    .container {
+      padding-top: 60px;
+    }
+
+    thead > tr > th {
+      background-color: #fff;
+    }
+
+    .wrapper {
+      height: 400px;
+      overflow: auto;
+      position: relative;
+    }
+  </style>
+
+  <script type="text/javascript">
+    angular.module('floatThead')
+        .controller('TestCtrl', function () {
+          this.enabled = false;
+
+          this.toggleFloatThead = function () {
+            this.enabled = !this.enabled;
+          };
+        });
+  </script>
+</head>
+<body ng-app="floatThead">
+<div class="container" ng-controller="TestCtrl as test">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-default" ng-click="test.toggleFloatThead()" ng-if="!test.enabled">Enable floatThead</button>
+      <button class="btn btn-default" ng-click="test.toggleFloatThead()" ng-if="test.enabled">Disable floatThead</button>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="wrapper">
+        <table float-thead="{ scrollingTop: 114, useAbsolutePositioning: false }" float-thead-enabled="test.enabled"
+               class="table table-bordered table-striped" style="min-width: 0px; table-layout: auto;">
+          <thead>
+          <tr>
+            <th><a href="#" id="demoHeader1">click me</a></th>
+            <th><a href="#" id="demoHeader2">mouse over me</a></th>
+            <th><a href="#" id="demoHeader3">Header...3</a></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td>Cell Content 1</td>
+            <td>Cell Content 2</td>
+            <td>Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>More Cell Content 1</td>
+            <td>More Cell Content 2</td>
+            <td>More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>Even More Cell Content 1</td>
+            <td>Even More Cell Content 2</td>
+            <td>Even More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>And Repeat 1</td>
+            <td>And Repeat 2</td>
+            <td>And Repeat 3</td>
+          </tr>
+          <tr>
+            <td>Cell Content 1</td>
+            <td>Cell Content 2</td>
+            <td>Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>More Cell Content 1</td>
+            <td>More Cell Content 2</td>
+            <td>More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>Even More Cell Content 1</td>
+            <td>Even More Cell Content 2</td>
+            <td>Even More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>And Repeat 1</td>
+            <td>And Repeat 2</td>
+            <td>And Repeat 3</td>
+          </tr>
+          <tr>
+            <td>Cell Content 1</td>
+            <td>Cell Content 2</td>
+            <td>Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>More Cell Content 1</td>
+            <td>More Cell Content 2</td>
+            <td>More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>Even More Cell Content 1</td>
+            <td>Even More Cell Content 2</td>
+            <td>Even More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>And Repeat 1</td>
+            <td>And Repeat 2</td>
+            <td>And Repeat 3</td>
+          </tr>
+          <tr>
+            <td>Cell Content 1</td>
+            <td>Cell Content 2</td>
+            <td>Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>More Cell Content 1</td>
+            <td>More Cell Content 2</td>
+            <td>More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>Even More Cell Content 1</td>
+            <td>Even More Cell Content 2</td>
+            <td>Even More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>And Repeat 1</td>
+            <td>And Repeat 2</td>
+            <td>And Repeat 3</td>
+          </tr>
+          <tr>
+            <td>Cell Content 1</td>
+            <td>Cell Content 2</td>
+            <td>Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>More Cell Content 1</td>
+            <td>More Cell Content 2</td>
+            <td>More Cell Content 3</td>
+          </tr>
+          <tr>
+            <td>Even More Cell Content 1</td>
+            <td>Even More Cell Content 2</td>
+            <td>Even More Cell Content 3</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
