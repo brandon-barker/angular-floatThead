@@ -25,6 +25,6 @@
     "tests"
   ],
   "dependencies": {
-    "floatThead": "~1.2.8"
+    "floatThead": "^1.2.8"
   }
 }
