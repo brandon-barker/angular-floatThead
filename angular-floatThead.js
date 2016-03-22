@@ -20,7 +20,7 @@
     var directive = {
       require: '?ngModel',
       scope: {
-        floatTheadEnabled: '='
+        floatTheadEnabled: '=?'
       },
       controller: function ($scope, $element, $attrs) {
         // default float-thead-enabled to true if not present
