@@ -20,7 +20,14 @@
     var directive = {
       require: '?ngModel',
       scope: {
-        floatTheadEnabled: '='
+        floatThead: '=?',
+        floatTheadEnabled: '=?'
+      },
+      controller: function ($scope, $element, $attrs) {
+        // default float-thead-enabled to true if not present
+        if (!$attrs.hasOwnProperty('floatTheadEnabled')) {
+          $scope.floatTheadEnabled = $attrs.floatTheadEnabled = true;
+        }
       },
       link: link,
       restrict: 'A'
@@ -30,23 +37,22 @@
     function link(scope, element, attrs, ngModel) {
       var isEnabled = (scope.floatTheadEnabled === true);
 
-      if (isEnabled) {
-        jQuery(element).floatThead(scope.$eval(attrs.floatThead));
-      }
-
       scope.$watch('floatTheadEnabled', function (newVal) {
         if (newVal === true) {
-          jQuery(element).floatThead(scope.$eval(attrs.floatThead));
+          jQuery(element).floatThead(scope.floatThead);
         } else {
           jQuery(element).floatThead('destroy');
         }
       });
 
       if (ngModel) {
-        // Set $watch to do a deep watch on the ngModel (collection) by specifying true as a 3rd parameter
-        scope.$watch(attrs.ngModel, function () {
-          jQuery(element).floatThead('reflow');
-        }, true);
+        // hook the model $formatters to get notified when anything changes so we can reflow
+        ngModel.$formatters.push(function () {
+          // give time for rerender before reflow
+          $timeout(function() {
+            jQuery(element).floatThead('reflow');
+          });
+        });
       } else {
         $log.info('floatThead: ngModel not provided!');
       }
