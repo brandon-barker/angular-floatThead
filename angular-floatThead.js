@@ -45,7 +45,10 @@
       if (ngModel) {
         // Set $watch to do a deep watch on the ngModel (collection) by specifying true as a 3rd parameter
         scope.$watch(attrs.ngModel, function () {
-          jQuery(element).floatThead('reflow');
+          //give time for rerender before reflow
+          $timeout(function() {
+            jQuery(element).floatThead('reflow');
+          }, 100);
         }, true);
       } else {
         $log.info('floatThead: ngModel not provided!');
