@@ -20,6 +20,7 @@
     var directive = {
       require: '?ngModel',
       scope: {
+        floatThead: '=?',
         floatTheadEnabled: '=?'
       },
       controller: function ($scope, $element, $attrs) {
@@ -36,13 +37,9 @@
     function link(scope, element, attrs, ngModel) {
       var isEnabled = (scope.floatTheadEnabled === true);
 
-      if (isEnabled) {
-        jQuery(element).floatThead(scope.$eval(attrs.floatThead));
-      }
-
       scope.$watch('floatTheadEnabled', function (newVal) {
         if (newVal === true) {
-          jQuery(element).floatThead(scope.$eval(attrs.floatThead));
+          jQuery(element).floatThead(scope.floatThead);
         } else {
           jQuery(element).floatThead('destroy');
         }
