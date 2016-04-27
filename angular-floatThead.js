@@ -30,7 +30,7 @@
         }
         
         // default to empty object
-        if (!$attrs.hasOwnProperty('floatThead')) {
+        if (!$attrs.hasOwnProperty('floatThead') || $attrs.floatThead === '') {
           $scope.floatThead = $attrs.floatThead = {};
         }
       },
