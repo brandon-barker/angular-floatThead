@@ -28,43 +28,63 @@
         if (!$attrs.hasOwnProperty('floatTheadEnabled')) {
           $scope.floatTheadEnabled = $attrs.floatTheadEnabled = true;
         }
+        
+        // default to empty object
+        if (!$attrs.hasOwnProperty('floatThead')) {
+          $scope.floatThead = $attrs.floatThead = {};
+        }
       },
       link: link,
       restrict: 'A'
     };
     return directive;
 
-    function link(scope, element, attrs, ngModel) {
-      var isEnabled = (scope.floatTheadEnabled === true);
-
-      scope.$watch('floatTheadEnabled', function (newVal) {
+    function link($scope, $element, $attrs, ngModel) {
+      $scope.$watch('floatTheadEnabled', function (newVal) {
         if (newVal === true) {
-          jQuery(element).floatThead(scope.floatThead);
+          if (angular.isObject($scope.floatThead)) {
+            jQuery($element).floatThead($scope.floatThead);
+          }
         } else {
-          jQuery(element).floatThead('destroy');
+          jQuery($element).floatThead('destroy');
         }
       });
+      
+      $scope.$watch('floatThead', function (newVal, oldVal) {
+        if (newVal === oldVal || !$scope.floatTheadEnabled) {
+          return;
+        }
+        
+        // first destroy it so we can recreate with new options
+        jQuery($element).floatThead('destroy');
+        if (angular.isObject(newVal)) {
+          jQuery($element).floatThead(newVal);
+        }
+      }, true);
 
       if (ngModel) {
         // hook the model $formatters to get notified when anything changes so we can reflow
         ngModel.$formatters.push(function () {
-          // give time for rerender before reflow
-          $timeout(function() {
-            jQuery(element).floatThead('reflow');
-          });
+          // only reflow if enabled
+          if ($scope.floatTheadEnabled && angular.isObject($scope.floatThead)) {
+            // give time for rerender before reflow
+            $timeout(function() {
+              jQuery($element).floatThead('reflow');
+            });
+          }
         });
       } else {
         $log.info('floatThead: ngModel not provided!');
       }
 
-      element.bind('update', function () {
+      $element.bind('update', function () {
         $timeout(function () {
-          jQuery(element).floatThead('reflow');
+          jQuery($element).floatThead('reflow');
         }, 0);
       });
 
-      element.bind('$destroy', function () {
-        jQuery(element).floatThead('destroy');
+      $element.bind('$destroy', function () {
+        jQuery($element).floatThead('destroy');
       });
     }
   }
