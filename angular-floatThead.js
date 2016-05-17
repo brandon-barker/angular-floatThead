@@ -23,7 +23,7 @@
         floatThead: '=?',
         floatTheadEnabled: '=?'
       },
-      controller: function ($scope, $element, $attrs) {
+      controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         // default float-thead-enabled to true if not present
         if (!$attrs.hasOwnProperty('floatTheadEnabled')) {
           $scope.floatTheadEnabled = $attrs.floatTheadEnabled = true;
@@ -33,7 +33,7 @@
         if (!$attrs.hasOwnProperty('floatThead') || $attrs.floatThead === '') {
           $scope.floatThead = $attrs.floatThead = {};
         }
-      },
+      }],
       link: link,
       restrict: 'A'
     };
