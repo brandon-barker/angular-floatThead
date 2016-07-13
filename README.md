@@ -6,6 +6,12 @@ angular-floatThead
 
 ## Installation
 
+#### via npm:
+
+```
+$ npm install angular-float-thead
+```
+
 #### via bower:
 
 ```
