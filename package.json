@@ -1,0 +1,28 @@
+{
+  "name": "angular-float-thead",
+  "version": "0.1.2",
+  "description": "angular-floatThead is a very simple wrapper around the awesome floatThead library by @mkoryak",
+  "main": "angular-floatThead.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon-barker/angular-floatThead.git"
+  },
+  "keywords": [
+    "angular",
+    "floatThead",
+    "sticky",
+    "tables"
+  ],
+  "author": "Brandon Barker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brandon-barker/angular-floatThead/issues"
+  },
+  "homepage": "https://github.com/brandon-barker/angular-floatThead#readme"
+}
